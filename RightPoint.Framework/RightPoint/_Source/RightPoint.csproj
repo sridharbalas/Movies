@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{690BE151-04F3-433A-9325-9BA3BCD31A8E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RightPoint</RootNamespace>
+    <AssemblyName>RightPoint</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/EventInventory/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITTEST NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITTEST NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Checkout Project Only|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Checkout Project Only\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITTEST NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Test\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Checkout Project Only|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Checkout Project Only\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Test\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Checkout Project Only|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Checkout Project Only\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Main Project Only|AnyCPU'">
+    <OutputPath>bin\Main Project Only\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Main Project Only|x64'">
+    <OutputPath>bin\x64\Main Project Only\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Main Project Only|x86'">
+    <OutputPath>bin\x86\Main Project Only\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnitTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\UnitTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITTEST NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\EventInventory.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnitTest|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\UnitTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\x64\Debug\EventInventory.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnitTest|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\UnitTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITTEST NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\x86\Debug\EventInventory.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86 For Profiling|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86 For Profiling\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86 For Profiling|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\x86 For Profiling\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86 For Profiling|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\x86 For Profiling\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20 NET_2_0 FRAMEWORK</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>_Imports\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_Imports\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="Config\CDataAttribute.cs" />
+    <Compile Include="Config\CDataConfigElement.cs" />
+    <Compile Include="Config\ConfigElement.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Config\ConfigElementCollection.cs" />
+    <Compile Include="Config\ConfigElementCollectionItem.cs" />
+    <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Config\ConfigManager.cs" />
+    <Compile Include="Config\ConfigSection.cs" />
+    <Compile Include="Config\CustomKeyAttribute.cs" />
+    <Compile Include="Config\ISupportFieldValueLoading.cs" />
+    <Compile Include="Config\ISupportRefresh.cs" />
+    <Compile Include="Config\KeyValuePair.cs" />
+    <Compile Include="Config\OptionalAttribute.cs" />
+    <Compile Include="Config\RegexTypeConverter.cs" />
+    <Compile Include="Data\Generation\Analyzer\DatabaseType.cs" />
+    <Compile Include="Data\Generation\Analyzer\IDatabaseAnalyzer.cs" />
+    <Compile Include="Data\Generation\Analyzer\MySqlDatabaseAnalyzer.cs" />
+    <Compile Include="Data\StoredProcedureNameAttribute.cs" />
+    <Compile Include="Data\Config.cs" />
+    <Compile Include="Data\Configuration.cs" />
+    <Compile Include="Data\Connection.cs" />
+    <Compile Include="Data\ConnectionDictionary.cs" />
+    <Compile Include="Data\ConnectionType.cs" />
+    <Compile Include="Data\DbFactory.cs" />
+    <Compile Include="Data\DbTypeContainer.cs" />
+    <Compile Include="Data\DbUtility.cs" />
+    <Compile Include="Data\Generation\Analyzer\Column.cs" />
+    <Compile Include="Data\Generation\Analyzer\DatabaseAnalyzer.cs" />
+    <Compile Include="Data\Generation\Analyzer\IndexSchema.cs" />
+    <Compile Include="Data\Generation\Analyzer\Parameter.cs" />
+    <Compile Include="Data\Generation\Analyzer\StoredProcedureSchema.cs" />
+    <Compile Include="Data\Generation\Analyzer\StoredProcedureType.cs" />
+    <Compile Include="Data\Generation\Analyzer\SysObjectRecord.cs" />
+    <Compile Include="Data\Generation\Analyzer\TableSchema.cs" />
+    <Compile Include="Data\Generation\DALEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DALEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Generation\DALEntityCollection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DALEntityCollection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Generation\DALEntityCollectionCustom.cs" />
+    <Compile Include="Data\Generation\DALEntityCustom.cs" />
+    <Compile Include="Data\Generation\DALHelperMethod.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DALHelperMethod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Generation\DALHelperMethodCustom.cs" />
+    <Compile Include="Data\Generation\DALTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DALTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Generation\DALTemplateCustom.cs" />
+    <Compile Include="Data\Generation\GeneratedTypes.cs" />
+    <Compile Include="Data\Generation\GenerationParameters.cs" />
+    <Compile Include="Data\Generation\Generator.cs" />
+    <Compile Include="Data\Generation\IDALTemplate.cs" />
+    <Compile Include="Data\Generation\ParsedStoredProcedureName.cs" />
+    <Compile Include="Data\Generation\UI\Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\Generation\UI\Progress.Designer.cs">
+      <DependentUpon>Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Generation\Utility.cs" />
+    <Compile Include="Data\IDAndKeyCollector.cs" />
+    <Compile Include="Data\InvalidConnectionKeyException.cs" />
+    <Compile Include="Data\InvalidConnectionTypeException.cs" />
+    <Compile Include="Data\InvalidReturnCodeException.cs" />
+    <Compile Include="Data\NoResultsReturnedException.cs" />
+    <Compile Include="Data\ParseFromDbType.cs" />
+    <Compile Include="Data\ParseToDbType.cs" />
+    <Compile Include="RightPointException.cs" />
+    <Compile Include="Newtonsoft.Json\Bson\BsonBinaryType.cs" />
+    <Compile Include="Newtonsoft.Json\Bson\BsonBinaryWriter.cs" />
+    <Compile Include="Newtonsoft.Json\Bson\BsonObjectId.cs" />
+    <Compile Include="Newtonsoft.Json\Bson\BsonReader.cs" />
+    <Compile Include="Newtonsoft.Json\Bson\BsonToken.cs" />
+    <Compile Include="Newtonsoft.Json\Bson\BsonType.cs" />
+    <Compile Include="Newtonsoft.Json\Bson\BsonWriter.cs" />
+    <Compile Include="Newtonsoft.Json\ConstructorHandling.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\BinaryConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\BsonObjectIdConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\CustomCreationConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\DataSetConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\DataTableConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\DateTimeConverterBase.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\DiscriminatedUnionConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\EntityKeyMemberConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\ExpandoObjectConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\IsoDateTimeConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\JavaScriptDateTimeConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\JsonValueConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\KeyValuePairConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\RegexConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\StringEnumConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\VersionConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Converters\XmlNodeConverter.cs" />
+    <Compile Include="Newtonsoft.Json\DateFormatHandling.cs" />
+    <Compile Include="Newtonsoft.Json\DateParseHandling.cs" />
+    <Compile Include="Newtonsoft.Json\DateTimeZoneHandling.cs" />
+    <Compile Include="Newtonsoft.Json\DefaultValueHandling.cs" />
+    <Compile Include="Newtonsoft.Json\FloatFormatHandling.cs" />
+    <Compile Include="Newtonsoft.Json\FloatParseHandling.cs" />
+    <Compile Include="Newtonsoft.Json\FormatterAssemblyStyle.cs" />
+    <Compile Include="Newtonsoft.Json\Formatting.cs" />
+    <Compile Include="Newtonsoft.Json\IJsonLineInfo.cs" />
+    <Compile Include="Newtonsoft.Json\JsonArrayAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonConstructorAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonContainerAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonConvert.cs" />
+    <Compile Include="Newtonsoft.Json\JsonConverter.cs" />
+    <Compile Include="Newtonsoft.Json\JsonConverterAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonConverterCollection.cs" />
+    <Compile Include="Newtonsoft.Json\JsonDictionaryAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonException.cs" />
+    <Compile Include="Newtonsoft.Json\JsonExtensionDataAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonIgnoreAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonObjectAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonPosition.cs" />
+    <Compile Include="Newtonsoft.Json\JsonPropertyAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\JsonReader.cs" />
+    <Compile Include="Newtonsoft.Json\JsonReaderException.cs" />
+    <Compile Include="Newtonsoft.Json\JsonSerializationException.cs" />
+    <Compile Include="Newtonsoft.Json\JsonSerializer.cs" />
+    <Compile Include="Newtonsoft.Json\JsonSerializerSettings.cs" />
+    <Compile Include="Newtonsoft.Json\JsonTextReader.cs" />
+    <Compile Include="Newtonsoft.Json\JsonTextWriter.cs" />
+    <Compile Include="Newtonsoft.Json\JsonToken.cs" />
+    <Compile Include="Newtonsoft.Json\JsonValidatingReader.cs" />
+    <Compile Include="Newtonsoft.Json\JsonWriter.cs" />
+    <Compile Include="Newtonsoft.Json\JsonWriterException.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\Extensions.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\IJEnumerable.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JArray.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JConstructor.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JContainer.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JEnumerable.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JObject.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JProperty.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JPropertyDescriptor.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JPropertyKeyedCollection.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JRaw.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonMergeSettings.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\ArrayIndexFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\ArrayMultipleIndexFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\ArraySliceFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\FieldFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\FieldMultipleFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\JPath.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\PathFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\QueryExpression.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\QueryFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JsonPath\ScanFilter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JToken.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JTokenEqualityComparer.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JTokenReader.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JTokenType.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JTokenWriter.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\JValue.cs" />
+    <Compile Include="Newtonsoft.Json\Linq\MergeArrayHandling.cs" />
+    <Compile Include="Newtonsoft.Json\MemberSerialization.cs" />
+    <Compile Include="Newtonsoft.Json\MetadataPropertyHandling.cs" />
+    <Compile Include="Newtonsoft.Json\MissingMemberHandling.cs" />
+    <Compile Include="Newtonsoft.Json\NullValueHandling.cs" />
+    <Compile Include="Newtonsoft.Json\ObjectCreationHandling.cs" />
+    <Compile Include="Newtonsoft.Json\PreserveReferencesHandling.cs" />
+    <Compile Include="Newtonsoft.Json\ReferenceLoopHandling.cs" />
+    <Compile Include="Newtonsoft.Json\Required.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\Extensions.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchema.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaBuilder.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaConstants.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaException.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaGenerator.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaModel.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaModelBuilder.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaNode.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaNodeCollection.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaResolver.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaType.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\JsonSchemaWriter.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\UndefinedSchemaIdHandling.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\ValidationEventArgs.cs" />
+    <Compile Include="Newtonsoft.Json\Schema\ValidationEventHandler.cs" />
+    <Compile Include="Newtonsoft.Json\SerializationBinder.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\CachedAttributeGetter.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\CamelCasePropertyNamesContractResolver.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\DefaultContractResolver.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\DefaultReferenceResolver.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\DefaultSerializationBinder.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\DiagnosticsTraceWriter.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\DynamicValueProvider.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\ErrorContext.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\ErrorEventArgs.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\ExpressionValueProvider.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\IAttributeProvider.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\IContractResolver.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\IReferenceResolver.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\ITraceWriter.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\IValueProvider.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonArrayContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonContainerContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonDictionaryContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonDynamicContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonFormatterConverter.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonISerializableContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonLinqContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonObjectContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonPrimitiveContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonProperty.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonPropertyCollection.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonSerializerInternalBase.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonSerializerInternalWriter.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonSerializerProxy.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonStringContract.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\JsonTypeReflector.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\MemoryTraceWriter.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\ObjectConstructor.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\OnErrorAttribute.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\ReflectionAttributeProvider.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\ReflectionValueProvider.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\TraceJsonReader.cs" />
+    <Compile Include="Newtonsoft.Json\Serialization\TraceJsonWriter.cs" />
+    <Compile Include="Newtonsoft.Json\StringEscapeHandling.cs" />
+    <Compile Include="Newtonsoft.Json\TraceLevel.cs" />
+    <Compile Include="Newtonsoft.Json\TypeNameHandling.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\Base64Encoder.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\BidirectionalDictionary.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\CollectionUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\CollectionWrapper.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ConvertUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\DateTimeParser.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\DateTimeUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\DictionaryWrapper.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\DynamicProxy.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\DynamicProxyMetaObject.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\DynamicReflectionDelegateFactory.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\DynamicUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\EnumUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\EnumValue.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ExpressionReflectionDelegateFactory.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\FSharpUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ILGeneratorExtensions.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ImmutableCollectionsUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\JavaScriptUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\JsonTokenUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\LateBoundReflectionDelegateFactory.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\LinqBridge.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\MathUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\MethodCall.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\MiscellaneousUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\PropertyNameTable.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ReflectionDelegateFactory.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ReflectionObject.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ReflectionUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\StringBuffer.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\StringReference.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\StringUtils.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ThreadSafeStore.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\TypeExtensions.cs" />
+    <Compile Include="Newtonsoft.Json\Utilities\ValidationUtils.cs" />
+    <Compile Include="Newtonsoft.Json\WriteState.cs" />
+    <Compile Include="NullValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Environment\Configuration.cs" />
+    <Compile Include="Web\Environment\Environment.cs" />
+    <Compile Include="Web\Environment\EnvironmentDictionary.cs" />
+    <Compile Include="Web\ExceptionManagerHttpModule.cs" />
+    <Compile Include="Web\IO.cs" />
+    <Compile Include="Web\JSON\JsonRequest.cs" />
+    <Compile Include="Web\JSON\JsonResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Data\Generation\DALEntity.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DALEntity.cs</LastGenOutput>
+    </None>
+    <None Include="Data\Generation\DALEntityCollection.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DALEntityCollection.cs</LastGenOutput>
+    </None>
+    <None Include="Data\Generation\DALHelperMethod.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DALHelperMethod.cs</LastGenOutput>
+    </None>
+    <None Include="Data\Generation\DALTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DALTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="Newtonsoft.Json\Dynamic.snk" />
+    <None Include="Newtonsoft.Json\Newtonsoft.Json.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Generation\UI\Progress.resx">
+      <DependentUpon>Progress.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Web\Resources\HitBoxJavascriptTemplate.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Web\Resources\HitBoxJavascriptTemplateWithSearch.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Web\Resources\ExactTargetConfirmation.xml" />
+    <EmbeddedResource Include="Web\Resources\MyAP9.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Newtonsoft.Json\Newtonsoft.Json.csproj" />
+    <Content Include="Newtonsoft.Json\Newtonsoft.Json.Net20.csproj" />
+    <Content Include="Newtonsoft.Json\Newtonsoft.Json.Net35.csproj" />
+    <Content Include="Newtonsoft.Json\Newtonsoft.Json.Net40.csproj" />
+    <Content Include="Newtonsoft.Json\Newtonsoft.Json.Portable.csproj" />
+    <Content Include="Newtonsoft.Json\Newtonsoft.Json.Portable40.csproj" />
+    <Content Include="Newtonsoft.Json\Newtonsoft.Json.WinRT.csproj" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

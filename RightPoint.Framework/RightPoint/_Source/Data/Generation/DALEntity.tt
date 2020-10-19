@@ -1,0 +1,16 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+
+	#region Entity
+
+	[System.SerializableAttribute()]
+	public partial class <#= EntityName #>Record
+	{
+		<#= EntityCode #>
+		/// <summary>
+		/// Blank constructor for serialization support only. Please do not use this constructor.
+		/// </summary>
+		public <#= EntityName #>Record(){}
+	}
+	
+	#endregion
+	

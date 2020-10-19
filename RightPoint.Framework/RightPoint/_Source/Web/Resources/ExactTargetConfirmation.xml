@@ -1,0 +1,12 @@
+﻿<system>
+  <system_name>tracking</system_name>
+  <action>conversion</action>
+  <member_id>"+memberid+"</member_id>
+  <job_id>"+jobid+"</job_id>
+  <email>"+emailaddr+"</email>
+  <list>"+listid+"</list>
+  <original_link_id>"+urlid+"</original_link_id>
+  <conversion_link_id>"+convid+"</conversion_link_id>
+  <display_order>"+convid+"</display_order>
+  <data_set>"+dataset+"</data_set>
+</system>

@@ -1,0 +1,35 @@
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="$(ProjectDir)\..\RightPoint\_Source\bin\Debug\RightPoint.dll" #>
+
+<#@ import namespace="RightPoint.Data.Generation" #>
+
+<# 
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Code generation variables begin here. 
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	var generationParameters = new GenerationParameters
+	(
+		"data source=sqlserveraws.cntlzobzu4lz.us-east-1.rds.amazonaws.com,1433;initial catalog=Movies;Integrated Security=false;user id=admin;password=Srid1234;Application Name=RightPoint.Applications.Web.Movies;", // Connection String
+		"RightPoint.Data" // Output Namespace
+	);
+
+	generationParameters.MarkSerializable = true;
+	generationParameters.GeneratedClassname = "MoviesDAL";
+	generationParameters.DatabaseObjectOwner = "dbo";
+	generationParameters.CommandTimeout = "120";
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Add each stored procedure here.
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	generationParameters.StoredProcedures.Add("ap_Movies_MovieSettings_Get");	
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Start the code generator.
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	var dalTemplate = new DALTemplate(generationParameters);
+
+#>
+
+<#= dalTemplate.TransformText() #>
+

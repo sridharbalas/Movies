@@ -1,0 +1,98 @@
+﻿@model RightPoint.Business.Models.Movies
+@{
+    ViewBag.Title = "Movies Home Page";
+}
+<style>
+    input[type=button]:disabled {color: #c6c6c6;}
+</style>
+
+<h2>Movies</h2>
+<br />
+<script type="text/javascript">
+    function SearchURL(actionType)
+    {
+        var params = "?searchTitle=" + $("#txtSearchTitle").val();
+        var searchType = $("input:radio[name='SearchType']:checked").val();
+        if (searchType == undefined)
+        {
+            searchType = "";
+        }
+
+        params += "&searchType=" + searchType;
+
+        var pageNumber;
+        switch (actionType)
+        {
+            case "Previous":
+                pageNumber = @ViewBag.PageNumber - 1;
+                break;
+            case "Next":
+                pageNumber = @ViewBag.PageNumber + 1;
+                break;
+            default:
+                pageNumber = 1;
+                break;
+        }
+        params += "&pageNumber=" + pageNumber;
+        document.location = encodeURI('@Url.Action("Index","Movies")' + params);
+
+    }
+</script>
+
+<div class="container">
+
+    <div class="row">Title: <input type="text" name="txtSearchTitle" id="txtSearchTitle" value=@ViewBag.SearchTitle></div>
+    <div class="row">
+        Type:
+        <input type="radio" name="SearchType" id="radioSearchTypeMovie" value="movie" @(ViewBag.SearchType == "movie" ? "checked='true'" : "") /> Movie
+        &nbsp;&nbsp;&nbsp;
+        <input type="radio" name="SearchType" id="radioSearchTypeTVShows" value="series" @(ViewBag.SearchType == "series" ? "checked='true'" : "") /> TV Show (series)
+        &nbsp;&nbsp;&nbsp;
+        <input type="radio" name="SearchType" id="radioSearchTypeAnything" value="" @(ViewBag.SearchType == "" ? "checked='true'" : "") /> Anything
+    </div>
+    <br />
+    <div class="row">
+        <input type="button" value="Search" onclick="return SearchURL('Search');" />
+    </div>
+</div>
+<br /><br/>
+
+<div class="container">
+    @if (Model == null)
+    {
+        <div>There are no Movies</div>
+    }
+    else if (Model.Search == null)
+    {
+        <div>There are no Movies / TV Shows matching this Search. Please change your search to watch exciting movies/shows!</div>
+    }
+    else
+    {
+        foreach (var search in Model.Search)
+        {
+            <div class="row">
+                <div class="col-lg-1"><a class="btn-link" href="@search.Poster">Poster &raquo;</a></div>
+                <div class="col-lg-4">@search.Title</div>
+                <div class="col-lg-1">@search.Year</div>
+            </div>
+        }
+    }
+</div>
+<br/><br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1" style="text-align:right;"> 
+            <input type="button" value="Previous" onclick="SearchURL('Previous')" @((ViewBag.PageNumber <= 1) ? "disabled" : "") />
+        </div>
+        <div class="col-lg-4" style=" text-align:center;">
+            @if (ViewBag.PageNumber != null && ViewBag.PageNumber > 0 && ViewBag.PageNumber <= ViewBag.PageCount)
+            {
+                <B>@ViewBag.PageNumber of @ViewBag.PageCount </B>
+            }
+        </div>
+        <div class="col-lg-1" style="text-align:left;">
+            <input type="button" value="Next" onclick="SearchURL('Next');" @((ViewBag.PageNumber >= ViewBag.PageCount) ? "disabled" : "")/>
+        </div>  
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#
+	// Reinit this at the start of every DAL to prevent collisions.
+	RightPoint.Data.Generation.DALHelperMethod.ResetMemberNameCounter();
+#>
+using System.Collections;
+using RightPoint.Data.Helper;
+
+namespace <#= GenerationParameters.GeneratedNamespace #>
+{
+<#
+	if(GenerationParameters.MarkSerializable == true)
+		WriteLine("\t[System.SerializableAttribute()]");
+#>
+	public partial class <#= GenerationParameters.GeneratedClassname #>
+	{
+	<# if(GenerationParameters.EnableTransactionSupport == true) { #>
+		public partial class WithTransaction
+		{
+			public static System.Data.IDbTransaction StartTransaction(System.Data.IsolationLevel isolationLevel)
+			{
+				System.Data.IDbTransaction transaction;
+				System.Data.IDbConnection connection = RightPoint.Data.DbFactory.GetConnection( "<#= GenerationParameters.ConnectionKey #>" );
+		
+				connection.Open();
+
+				transaction = connection.BeginTransaction(isolationLevel);
+
+				return transaction;
+			}
+
+			public static void CommitTransaction(System.Data.IDbTransaction transaction)
+			{
+				transaction.Commit();
+			
+				if(transaction.Connection != null && transaction.Connection.State != System.Data.ConnectionState.Closed)
+				{
+					transaction.Connection.Close();
+					transaction.Connection.Dispose();
+				}
+
+				transaction.Dispose();
+			}
+
+			public static void RollbackTransaction(System.Data.IDbTransaction transaction)
+			{
+				transaction.Rollback();
+			
+				if(transaction.Connection != null && transaction.Connection.State != System.Data.ConnectionState.Closed)
+				{
+					transaction.Connection.Close();
+					transaction.Connection.Dispose();
+				}
+
+				transaction.Dispose();
+			}
+		}
+		<# } #>
+
+		<#= this.GenerateDataLayerCode() #>
+	}
+}

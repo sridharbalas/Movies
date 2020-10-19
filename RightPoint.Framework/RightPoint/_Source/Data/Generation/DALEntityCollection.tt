@@ -1,0 +1,146 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+	#region Collection
+
+	[System.SerializableAttribute()]
+	public partial class <#= EntityName #>RecordCollection : System.Collections.CollectionBase
+	{
+		public <#= EntityName #>RecordCollection()
+		{}
+
+		public <#= EntityName #>RecordCollection( <#= EntityName #>RecordCollection val )
+		{
+			this.AddRange( val );
+		}
+
+		public <#= EntityName #>RecordCollection( <#= EntityName #>Record[] val )
+		{
+			this.AddRange( val );
+		}
+
+		public <#= EntityName #>Record this[ int index ]
+		{
+			get { return ((<#= EntityName #>Record) (List[ index ])); }
+			set { List[ index ] = value; }
+		}
+
+		public int Add( <#= EntityName #>Record val )
+		{
+			return List.Add( val );
+		}
+
+		public void AddRange( <#= EntityName #>Record[] val )
+		{
+			for ( int i = 0; i < val.Length; i++ )
+			{
+				this.Add( val[ i ] );
+			}
+		}
+
+		public void AddRange( <#= EntityName #>RecordCollection val )
+		{
+			for ( int i = 0; i < val.Count; i++ )
+			{
+				this.Add( val[ i ] );
+			}
+		}
+
+		public bool Contains( <#= EntityName #>Record val )
+		{
+			return List.Contains( val );
+		}
+
+		public void CopyTo( <#= EntityName #>Record[] array, System.Int32 index )
+		{
+			List.CopyTo( array, index );
+		}
+
+		public int IndexOf( <#= EntityName #>Record val )
+		{
+			return List.IndexOf( val );
+		}
+
+		public void Insert( int index, <#= EntityName #>Record val )
+		{
+			List.Insert( index, val );
+		}
+
+		new public <#= EntityName #>RecordEnumerator GetEnumerator()
+		{
+			return new <#= EntityName #>RecordEnumerator( this );
+		}
+
+		public void Remove( <#= EntityName #>Record val )
+		{
+			List.Remove( val );
+		}
+
+		public void Sort( System.Collections.IComparer comparer )
+		{
+    		InnerList.Sort( comparer );
+		}
+
+#if !DOTNET_STANDARD
+		public void Sort( string sortString )
+		{
+    		InnerList.Sort( (IComparer) new RightPoint.GenericComparer<<#= EntityName #>Record>(sortString) );
+		}
+#endif
+
+		protected override void OnInsert( System.Int32 index, System.Object value )
+		{
+    		OnValidate( value );
+		}
+
+		protected override void OnRemove( System.Int32 index, System.Object value )
+		{
+    		OnValidate( value );
+		}
+
+		protected override void OnSet( System.Int32 index, System.Object oldValue, System.Object newValue )
+		{
+    		OnValidate( oldValue );
+    		OnValidate( newValue );
+		}
+
+		protected override void OnValidate( System.Object value )
+		{
+    		if ( (value is <#= EntityName #>Record) == false )
+    		{
+    			throw new System.ArgumentException( "value must be of type <#= EntityName #>Record." );
+    		}
+		}
+
+		public class <#= EntityName #>RecordEnumerator : System.Collections.IEnumerator
+		{
+			private System.Collections.IEnumerator _baseEnumerator;
+			private System.Collections.IEnumerable _temp;
+
+			public <#= EntityName #>RecordEnumerator( <#= EntityName #>RecordCollection mappings )
+			{
+				_temp = mappings;
+				_baseEnumerator = _temp.GetEnumerator();
+			}
+
+			public <#= EntityName #>Record Current
+			{
+				get { return ((<#= EntityName #>Record) (_baseEnumerator.Current)); }
+			}
+
+			System.Object System.Collections.IEnumerator.Current
+			{
+				get { return _baseEnumerator.Current; }
+			}
+
+			public bool MoveNext()
+			{
+				return _baseEnumerator.MoveNext();
+			}
+
+			public void Reset()
+			{
+				_baseEnumerator.Reset();
+			}
+		}
+	}
+
+	#endregion

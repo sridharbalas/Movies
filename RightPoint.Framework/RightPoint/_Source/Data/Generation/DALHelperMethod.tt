@@ -1,0 +1,517 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+// ConnectionKey: <#= ConnectionKey #>
+// DatabaseObjectOwner: <#= DatabaseObjectOwner #>
+#region Helper Method
+<#
+	string delegateName = "Try" + MethodName;
+
+	if(_memberNameCounter.ContainsKey(delegateName) == true)
+	{
+		_memberNameCounter[delegateName] = _memberNameCounter[delegateName] + 1;
+		delegateName += _memberNameCounter[delegateName].ToString();
+	}
+	else
+	{
+		_memberNameCounter.Add(delegateName, 0);
+	}
+
+	switch ( EntityType )
+	{
+		case GeneratedTypes.ResultSetCollection:
+#>
+#region Collection Getter Method
+
+#if UNITTEST
+public partial class UnitTestDelegates
+{
+	public delegate bool <#= delegateName #>UnitTestDelegateDefinition( <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>RecordCollection returnValue);
+	public static <#= delegateName #>UnitTestDelegateDefinition <#= delegateName #> = null;
+}
+#endif 
+
+[StoredProcedureName("<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>")]
+public static bool Try<#= MethodName #>( <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>RecordCollection returnValue)
+{
+	return WithTransaction.Try<#= MethodName #>(null, <#= GenerateMethodParameters(false, true) #> out returnValue);
+}
+
+public partial class WithTransaction
+{
+	public static bool Try<#= MethodName #>(System.Data.IDbTransaction transaction, <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>RecordCollection returnValue)
+	{
+#if UNITTEST
+		if(UnitTestDelegates.<#= delegateName #> != null)
+			return UnitTestDelegates.<#= delegateName #>(<#= GenerateMethodParameters(false, true) #> out returnValue);
+#endif
+
+		int returnCode = <#= MethodName #>(transaction, <#= GenerateMethodParameters(false, true) #> out returnValue);
+	
+		return returnCode == 0;
+	}
+}
+
+private static int <#= MethodName #>(System.Data.IDbTransaction transaction, <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>RecordCollection returnValue)
+{
+	int returnCode = -1;
+	
+	returnValue = new <#= EntityName #>RecordCollection();
+
+	System.Data.IDbConnection dbConnection = null;
+	
+	try
+	{
+
+#if QUERYLOG
+		RightPoint.Data.QueryLogItem queryLog = RightPoint.Data.QueryLog.CreateLogItem("<#= (ConnectionKey == null) ? Database : ConnectionKey #>.<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>");
+#endif
+
+#if !DOTNET_STANDARD 
+		if (RightPoint.Data.Helper.Utilities.IsDBMaintenanceFileExists( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" ) == true)
+        {
+			returnCode = 0;
+            throw new DBMaintenanceException();
+        }
+#endif
+
+		if(transaction != null)
+		{
+			dbConnection = transaction.Connection;
+		}
+		else
+		{
+			dbConnection = RightPoint.Data.DbFactory.GetConnection( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" );
+			dbConnection.Open();
+		}
+	
+		System.Data.IDbCommand dbCommand = RightPoint.Data.DbUtility.CreateStoredProcedureCommand( dbConnection, "<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>" );
+
+		if(transaction != null)
+			dbCommand.Transaction = transaction;
+
+<# 
+if (CommandTimeout != null && CommandTimeout.Length > 0) 
+{
+#>
+		dbCommand.CommandTimeout = <#= CommandTimeout #>;
+<#
+}
+#>
+
+        RightPoint.Data.DbUtility.AddReturnParameter( dbCommand );
+		<#= GenerateStoredProcedureParameters() #>
+
+		System.Data.IDataReader dbDataReader = null;
+
+#if QUERYLOG
+		queryLog.MarkExecutionStart();
+#endif
+
+		dbDataReader = dbCommand.ExecuteReader( System.Data.CommandBehavior.CloseConnection );
+
+#if QUERYLOG
+		queryLog.MarkExecutionEnd();
+#endif
+
+		while ( dbDataReader.Read() )
+		{
+			returnValue.Add( new <#= EntityName #>Record( <#= GenerateEntityConstructorParametersFromResults() #> ) );
+		}
+
+#if QUERYLOG
+		queryLog.MarkTransformationEnd();
+#endif
+
+		dbDataReader.Close();
+		returnCode = RightPoint.Data.DbUtility.GetReturnCode(dbCommand);
+		
+		return returnCode;
+	}
+	finally
+	{
+			if (transaction == null && dbConnection != null)
+			{
+				if (dbConnection.State != System.Data.ConnectionState.Closed)
+				{
+					dbConnection.Close();
+				}
+
+				dbConnection.Dispose();
+			}
+	}
+	
+}
+
+#endregion
+
+<#
+			break;
+		case GeneratedTypes.OutputEntity:
+#>
+#region Record Getter Method
+
+#if UNITTEST
+public partial class UnitTestDelegates
+{
+	public delegate bool <#= delegateName #>UnitTestDelegateDefinition( <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>Record returnValue);
+	public static <#= delegateName #>UnitTestDelegateDefinition <#= delegateName #> = null;
+}
+#endif 
+
+[StoredProcedureName("<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>")]
+public static bool Try<#= MethodName #>( <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>Record returnValue)
+{
+	return WithTransaction.Try<#= MethodName #>(null, <#= GenerateMethodParameters(false, true) #> out returnValue);
+}
+
+
+public partial class WithTransaction
+{
+	public static bool Try<#= MethodName #>(System.Data.IDbTransaction transaction, <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>Record returnValue)
+	{
+
+	#if UNITTEST
+		if(UnitTestDelegates.<#= delegateName #> != null)
+			return UnitTestDelegates.<#= delegateName #>(<#= GenerateMethodParameters(false, true) #> out returnValue);
+	#endif 
+
+		int returnCode = <#= MethodName #>(transaction, <#= GenerateMethodParameters(false, true) #> out returnValue);
+	
+		if(returnCode != 0)
+			returnValue = null;
+		
+		return (returnCode == 0);
+	}
+}
+
+
+
+private static int <#= MethodName #>(System.Data.IDbTransaction transaction, <#= GenerateMethodParameters(true, true) #> out <#= EntityName #>Record returnValue )
+{
+	System.Data.IDbConnection dbConnection = null;
+		
+	try
+	{	
+
+#if QUERYLOG
+		RightPoint.Data.QueryLogItem queryLog = RightPoint.Data.QueryLog.CreateLogItem("<#= (ConnectionKey == null) ? Database : ConnectionKey #>.<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>");
+#endif
+
+#if !DOTNET_STANDARD
+		if (RightPoint.Data.Helper.Utilities.IsDBMaintenanceFileExists( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" ) == true)
+        {
+            throw new DBMaintenanceException();
+        }
+#endif
+
+		if(transaction != null)
+		{
+			dbConnection = transaction.Connection;
+		}
+		else
+		{
+			dbConnection = RightPoint.Data.DbFactory.GetConnection( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" );
+			dbConnection.Open();
+		}
+			
+		System.Data.IDbCommand dbCommand = RightPoint.Data.DbUtility.CreateStoredProcedureCommand( dbConnection, "<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>" );
+
+		if(transaction != null)
+			dbCommand.Transaction = transaction;
+
+<# 
+if (CommandTimeout != null && CommandTimeout.Length > 0) 
+{
+#>
+		dbCommand.CommandTimeout = <#= CommandTimeout #>;
+<#
+}
+#>
+
+        RightPoint.Data.DbUtility.AddReturnParameter( dbCommand );
+		<#= GenerateStoredProcedureParameters() #>
+
+#if QUERYLOG
+		queryLog.MarkExecutionStart();
+#endif
+
+		dbCommand.ExecuteNonQuery();
+			
+#if QUERYLOG
+		queryLog.MarkExecutionEnd();
+#endif
+
+		int returnCode = RightPoint.Data.DbUtility.GetReturnCode(dbCommand);;
+
+		switch(returnCode)
+		{
+			case 0:
+				returnValue = new <#= EntityName #>Record( <#= GenerateEntityConstructorParametersFromOutput() #> );
+				break;
+				
+			default:
+				returnValue = null;
+				break;
+		}
+
+#if QUERYLOG
+		queryLog.MarkTransformationEnd();
+#endif
+			
+		return returnCode;
+	}
+	finally
+	{
+		if (transaction == null && dbConnection != null)
+		{
+			if (dbConnection.State != System.Data.ConnectionState.Closed)
+			{
+				dbConnection.Close();
+			}
+
+			dbConnection.Dispose();
+		}
+	}
+}
+
+#endregion
+
+<#
+			break;
+	case GeneratedTypes.SimpleType:
+#>
+#region SimpleType Getter Method
+
+#if UNITTEST
+public partial class UnitTestDelegates
+{
+	public delegate bool <#= delegateName #>UnitTestDelegateDefinition( <#= GenerateMethodParameters(true, true) #> out <#= GetReturnValueTypeForSimpleType() #> returnValue);
+	public static <#= delegateName #>UnitTestDelegateDefinition <#= delegateName #> = null;
+}
+#endif
+
+[StoredProcedureName("<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>")]
+public static bool Try<#= MethodName #>( <#= GenerateMethodParameters(true, true) #> out <#= GetReturnValueTypeForSimpleType() #> returnValue )
+{
+	return WithTransaction.Try<#= MethodName #>(null, <#= GenerateMethodParameters(false, true) #> out returnValue);
+}
+
+public partial class WithTransaction
+{
+	public static bool Try<#= MethodName #>(System.Data.IDbTransaction transaction, <#= GenerateMethodParameters(true, true) #> out <#= GetReturnValueTypeForSimpleType() #> returnValue)
+	{
+
+#if UNITTEST
+		if(UnitTestDelegates.<#= delegateName #> != null)
+			return UnitTestDelegates.<#= delegateName #>(<#= GenerateMethodParameters(false, true) #> out returnValue);
+#endif
+		
+		int returnCode = <#= MethodName #>(transaction, <#= GenerateMethodParameters(false, true) #> out returnValue);
+	
+		return (returnCode == 0);
+	}
+}
+
+private static int <#= MethodName #>(System.Data.IDbTransaction transaction, <#= GenerateMethodParameters(true, true) #> out <#= GetReturnValueTypeForSimpleType() #> returnValue )
+{
+	returnValue = null;
+	
+	System.Data.IDbConnection dbConnection = null;
+		
+	try
+	{	
+
+#if QUERYLOG
+		RightPoint.Data.QueryLogItem queryLog = RightPoint.Data.QueryLog.CreateLogItem("<#= (ConnectionKey == null) ? Database : ConnectionKey #>.<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>");
+#endif
+
+#if !DOTNET_STANDARD
+		if (RightPoint.Data.Helper.Utilities.IsDBMaintenanceFileExists( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" ) == true)
+        {
+            throw new DBMaintenanceException();
+        }
+#endif 
+
+		if(transaction != null)
+		{
+			dbConnection = transaction.Connection;
+		}
+		else
+		{
+			dbConnection = RightPoint.Data.DbFactory.GetConnection( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" );
+			dbConnection.Open();
+		}
+
+		System.Data.IDbCommand dbCommand = RightPoint.Data.DbUtility.CreateStoredProcedureCommand( dbConnection, "<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>" );
+            
+		if(transaction != null)
+			dbCommand.Transaction = transaction;
+
+
+<# 
+if (CommandTimeout != null && CommandTimeout.Length > 0) 
+{
+#>
+		dbCommand.CommandTimeout = <#= CommandTimeout #>;
+<#
+}
+#>            
+            
+        RightPoint.Data.DbUtility.AddReturnParameter( dbCommand );
+		<#= GenerateStoredProcedureParameters() #>
+
+#if QUERYLOG
+		queryLog.MarkExecutionStart();
+#endif
+			
+		dbCommand.ExecuteNonQuery();
+
+#if QUERYLOG
+		queryLog.MarkExecutionEnd();
+#endif
+
+		int returnCode = RightPoint.Data.DbUtility.GetReturnCode(dbCommand);
+            
+		if(returnCode == 0)
+			returnValue = <#= GenerateReturnValueForSimpleType() #>;
+
+#if QUERYLOG
+		queryLog.MarkTransformationEnd();
+#endif
+				
+		return returnCode;
+	}
+	finally
+	{
+			if (transaction == null && dbConnection != null)
+			{
+				if (dbConnection.State != System.Data.ConnectionState.Closed)
+				{
+					dbConnection.Close();
+				}
+
+				dbConnection.Dispose();
+			}
+	}
+}
+#endregion
+
+<#
+
+			break;
+		case GeneratedTypes.ReturnValue:
+#>
+#region ReturnValue Getter Method
+
+#if UNITTEST
+public partial class UnitTestDelegates
+{
+	public delegate bool <#= delegateName #>UnitTestDelegateDefinition( <#= GenerateMethodParameters(true, false) #> );
+	public static <#= delegateName #>UnitTestDelegateDefinition <#= delegateName #> = null;
+}
+#endif
+
+[StoredProcedureName("<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>")]
+public static bool Try<#= MethodName #>( <#= GenerateMethodParameters(true, false) #> )
+{
+	return WithTransaction.Try<#= MethodName #>(<#= GenerateMethodParameters(false, true) #> null );
+}
+
+public partial class WithTransaction
+{
+	public static bool Try<#= MethodName #>( <#= GenerateMethodParameters(true, true) #> System.Data.IDbTransaction transaction)
+	{
+
+#if UNITTEST
+		if(UnitTestDelegates.<#= delegateName #> != null)
+			return UnitTestDelegates.<#= delegateName #>(<#= GenerateMethodParameters(false, false) #>);
+#endif
+		
+		int returnValue = <#= MethodName #>(<#= GenerateMethodParameters(false, true) #> transaction );
+	
+		return (returnValue == 0);
+	}
+}
+
+
+private static System.Int32 <#= MethodName #>(<#= GenerateMethodParameters(true, true) #> System.Data.IDbTransaction transaction )
+{
+	System.Data.IDbConnection dbConnection = null;
+		
+	try
+	{	
+
+#if QUERYLOG
+		RightPoint.Data.QueryLogItem queryLog = RightPoint.Data.QueryLog.CreateLogItem("<#= (ConnectionKey == null) ? Database : ConnectionKey #>.<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>");
+#endif
+
+#if !DOTNET_STANDARD
+		if (RightPoint.Data.Helper.Utilities.IsDBMaintenanceFileExists( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" ) == true)
+        {
+            throw new DBMaintenanceException();
+        }
+#endif
+
+		if(transaction != null)
+		{
+			dbConnection = transaction.Connection;
+		}
+		else
+		{
+			dbConnection = RightPoint.Data.DbFactory.GetConnection( "<#= (ConnectionKey == null) ? Database : ConnectionKey #>" );
+			dbConnection.Open();
+		}
+
+		System.Data.IDbCommand dbCommand = RightPoint.Data.DbUtility.CreateStoredProcedureCommand( dbConnection, "<#= DatabaseObjectOwner #>.<#= StoredProcedureName #>" );
+
+		if(transaction != null)
+			dbCommand.Transaction = transaction;
+
+<# 
+if (CommandTimeout != null && CommandTimeout.Length > 0) 
+{
+#>
+		dbCommand.CommandTimeout = <#= CommandTimeout #>;
+<#
+}
+#>
+
+        RightPoint.Data.DbUtility.AddReturnParameter( dbCommand );
+		<#= GenerateStoredProcedureParameters() #>
+
+#if QUERYLOG
+		queryLog.MarkExecutionStart();
+#endif
+
+		dbCommand.ExecuteNonQuery();
+
+#if QUERYLOG
+		queryLog.MarkExecutionEnd();
+#endif
+
+
+#if QUERYLOG
+		queryLog.MarkTransformationEnd();
+#endif
+
+		return RightPoint.Data.DbUtility.GetReturnCode(dbCommand);
+	}
+	finally
+	{
+		if (transaction == null && dbConnection != null)
+		{
+			if (dbConnection.State != System.Data.ConnectionState.Closed)
+			{
+				dbConnection.Close();
+			}
+
+			dbConnection.Dispose();
+		}
+	}
+}
+#endregion
+<#
+			break;
+	}
+#>
+
+#endregion
